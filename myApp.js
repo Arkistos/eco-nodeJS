@@ -1,4 +1,5 @@
 
+
 var express = require('express');
 var app = express();
 
@@ -18,23 +19,24 @@ app.get('/', function(req,res){
 
 /** 3) Serve an HTML file */
 
-
+ 
 /** 4) Serve static assets  */
 app.use(express.static(__dirname+'/public'))
 
 /** 5) serve JSON on a specific route */
 app.get('/json', function(req, res){
-  var response = "Hello json";
+  console.log('hey')
+  var reponse = "";
   if(process.env.MESSAGE_STYLE === 'uppercase'){
-    response = "HELLO JSON";
+    reponse = "HELLO JSON";
   }else{
-    response = "Hello json";
+    reponse = "Hello json";
   }
-  res.json({'message' : response})
+  res.json({"message": reponse});
 })
 
 /** 6) Use the .env file to configure the app */
- process.env.MESSAGE_STYLE='uppercase';
+process.env.MESSAGE_STYLE = "uppercase";
  
 /** 7) Root-level Middleware - A logger */
 //  place it before all the routes !
