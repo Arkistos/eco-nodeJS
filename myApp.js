@@ -13,14 +13,14 @@ console.log('Hello World');
 
 /** 2) A first working Express Server */
 app.get('/', function(req,res){
-  res.send('Hello Express');
+  res.sendFile(__dirname+'/views/index.html');
 })
 
 /** 3) Serve an HTML file */
 
 
 /** 4) Serve static assets  */
-
+app.use(express.static(__dirname+'/public'))
 
 /** 5) serve JSON on a specific route */
 
